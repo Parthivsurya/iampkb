@@ -79,11 +79,17 @@ h1 {
     animation-delay: 0.3s;
 }
 
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 .project-btn {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 2rem;
     padding: 0.8rem 1.5rem;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -94,6 +100,16 @@ h1 {
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+.project-btn.secondary {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.project-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
 .project-btn:hover {
