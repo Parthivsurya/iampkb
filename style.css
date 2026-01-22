@@ -35,7 +35,7 @@ body::before {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(127,0,255,0.15) 0%, rgba(10,10,10,0) 70%);
+    background: radial-gradient(circle, rgba(127, 0, 255, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -70,6 +70,44 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+.fade-in-delay {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0.3s;
+}
+
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.8rem 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.project-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.project-btn .arrow {
+    transition: transform 0.3s ease;
+}
+
+.project-btn:hover .arrow {
+    transform: translateX(4px);
 }
 
 @media (max-width: 768px) {
