@@ -15,32 +15,17 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     font-family: 'Outfit', sans-serif;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    padding: 2rem 1rem;
 }
 
 .container {
     text-align: center;
-    padding: 2rem;
-    position: relative;
-    z-index: 1;
-}
-
-/* Background ambient glow */
-body::before {
-    content: '';
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(127, 0, 255, 0.15) 0%, rgba(10, 10, 10, 0) 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-    pointer-events: none;
+    max-width: 600px;
+    width: 100%;
 }
 
 h1 {
@@ -48,15 +33,12 @@ h1 {
     font-weight: 300;
     letter-spacing: -0.05em;
     line-height: 1.2;
+    margin-bottom: 2rem;
 }
 
 .gradient-text {
     font-weight: 600;
-    background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
+    color: #ffffff;
 }
 
 .fade-in {
@@ -89,33 +71,34 @@ h1 {
 .project-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.8rem 1.5rem;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 50px;
-    color: var(--text-color);
+    padding: 0.8rem 1.6rem;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 6px;
+    color: #000000;
     text-decoration: none;
     font-size: 1rem;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.project-btn:hover {
+    background: transparent;
+    color: #ffffff;
+    transform: translateY(-2px);
 }
 
 .project-btn.secondary {
     background: transparent;
-    border-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
 }
 
 .project-btn.secondary:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.15);
-}
-
-.project-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    background: transparent;
 }
 
 .project-btn .arrow {
