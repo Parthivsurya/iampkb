@@ -2,7 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Projects = () => {
-    const projects = [];
+    const projects = [
+        {
+            title: 'Treely',
+            description: 'You give us $1 we plant a tree of your choice with that dollar.',
+            tech: ['React', 'Node.js', 'MongoDB'],
+            link: 'https://treely-tau.vercel.app/index.html'
+        },
+        {
+            title: 'Brain',
+            description: 'A stem based learning platform for students',
+            tech: ['React.js', 'three.js', 'Tailwind CSS', 'Node.js', 'MongoDB'],
+            link: 'https://brain.iampkb.dev'
+        }
+    ];
 
     return (
         <main>
@@ -22,6 +35,9 @@ const Projects = () => {
                                     <span key={i} className="tech-badge">{tech}</span>
                                 ))}
                             </div>
+                            <a href={project.link} className="btn-small" style={{ display: 'inline-block', marginTop: '1rem', color: 'var(--primary-color)', textDecoration: 'none', fontWeight: 'bold' }}>
+                                View Project →
+                            </a>
                         </div>
                     ))}
                 </div>

@@ -18,6 +18,9 @@ const Home = () => {
                     <Link to="/about" className="btn btn-secondary">
                         About Me
                     </Link>
+                    {/* <a href="/Parthivsurya.pdf" className="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                        Resume
+                    </a> */}
                 </div>
             </div>
         </main>
