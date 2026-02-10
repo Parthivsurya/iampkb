@@ -5,11 +5,11 @@ const Contact = () => {
     const Contact = [
         {
             title: 'LinkeLN',
-            link: 'https://linkedin.com/in/parthivsuryakb'
+            link: 'https://linkedin.com/in/parthivsurya'
         },
         {
             title: 'Github',
-            link: 'https://github.com/parthivsuryakb'
+            link: 'https://github.com/parthivsurya'
         }
         , {
             title: 'Gmail',
