@@ -25,7 +25,7 @@ const Contact = () => {
                     HEHEE Waana connect with me
 
                 </p>
-                <div className="projects-grid slide-up-delay" style={{ animationDelay: '0.2s' }}>
+                <div className="projects-grid slide-up-delay" style={{ animationDelay: '0.1s' }}>
                     {Contact.map((project, index) => (
                         <div key={index} className="project-card">
                             <h3>{project.title}</h3>

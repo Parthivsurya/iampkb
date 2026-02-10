@@ -19,11 +19,6 @@ const About = () => {
                         I'm passionate about building clean, functional applications and learning new technologies along the way.
                     </p>
                     <p>
-                        When I'm not coding, you'll find me exploring new frameworks, debugging mysterious errors at 2 AM,
-                        or trying to convince myself that "it works on my machine" is a valid excuse.
-                    </p>
-                    <p>
-                        I believe in writing code that's not just functional, but maintainable and elegant.
                         Every project is an opportunity to learn something new and improve my craft.
                     </p>
                 </div>
