@@ -1,37 +1,78 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaLinkedin, FaGithub, FaEnvelope, FaCopy, FaCheck } from 'react-icons/fa';
 
 const Contact = () => {
-    const Contact = [
+    const [copied, setCopied] = useState(false);
+    const email = 'parthivsuryakb@gmail.com';
+
+    const handleCopyEmail = (e) => {
+        e.preventDefault();
+        navigator.clipboard.writeText(email);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
+
+    const contactLinks = [
         {
-            title: 'LinkeLN',
-            link: 'https://linkedin.com/in/parthivsurya'
+            icon: <FaLinkedin size={24} />,
+            title: 'LinkedIn',
+            link: 'https://linkedin.com/in/parthivsurya',
+            text: 'Connect on LinkedIn',
+            color: '#0077b5'
         },
         {
-            title: 'Github',
-            link: 'https://github.com/parthivsurya'
-        }
-        , {
-            title: 'Gmail',
-            link: 'mailto:parthivsuryakb@gmail.com'
+            icon: <FaGithub size={24} />,
+            title: 'GitHub',
+            link: 'https://github.com/parthivsurya',
+            text: 'Follow on GitHub',
+            color: '#333'
+        },
+        {
+            icon: <FaEnvelope size={24} />,
+            title: 'Email',
+            link: `mailto:${email}`,
+            text: email,
+            isEmail: true,
+            color: '#ea4335'
         }
     ];
 
     return (
         <main>
-            <div className="container">
-                <h1 className="slide-up">CONTACT <strong>ME</strong></h1>
-                <p className="slide-up-delay" style={{ fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto 2rem', textAlign: 'center' }}>
-                    HEHEE Waana connect with me
-
+            <div className="container contact-container">
+                <h1 className="slide-up">Get in <strong>Touch</strong></h1>
+                <p className="slide-up-delay" style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto 3rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
+                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
                 </p>
-                <div className="projects-grid slide-up-delay" style={{ animationDelay: '0.1s' }}>
-                    {Contact.map((project, index) => (
-                        <div key={index} className="project-card">
-                            <h3>{project.title}</h3>
-                            <a href={project.link} className="btn-small" style={{ display: 'inline-block', marginTop: '1rem', color: 'var(--primary-color)', textDecoration: 'none', fontWeight: 'bold' }}>
-                                hehe click here
-                            </a>
+
+                <div className="contact-grid slide-up-delay">
+                    {contactLinks.map((item, index) => (
+                        <div key={index} className="contact-card">
+                            <div className="icon-box" style={{ color: 'var(--accent)' }}>
+                                {item.icon}
+                            </div>
+                            <h3>{item.title}</h3>
+
+                            {item.isEmail ? (
+                                <div className="email-wrapper">
+                                    <a href={item.link} className="contact-link">
+                                        {item.text}
+                                    </a>
+                                    <button
+                                        className="copy-btn"
+                                        onClick={handleCopyEmail}
+                                        aria-label="Copy email address"
+                                    >
+                                        {copied ? <FaCheck /> : <FaCopy />}
+                                    </button>
+                                    {copied && <span className="copied-tooltip">Copied!</span>}
+                                </div>
+                            ) : (
+                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="contact-link">
+                                    {item.text} <span>→</span>
+                                </a>
+                            )}
                         </div>
                     ))}
                 </div>
@@ -39,9 +80,9 @@ const Contact = () => {
                 <Link
                     to="/"
                     className="btn btn-secondary slide-up-delay"
-                    style={{ marginTop: '3rem', animationDelay: '0.4s' }}
+                    style={{ marginTop: '4rem' }}
                 >
-                    <span className="arrow" style={{ transform: 'rotate(180deg)' }}>→</span>
+                    <span className="arrow" style={{ transform: 'rotate(180deg)', display: 'inline-block' }}>→</span>
                     Back Home
                 </Link>
             </div>
