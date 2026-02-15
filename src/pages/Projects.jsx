@@ -6,7 +6,7 @@ const Projects = () => {
         {
             title: 'Treely',
             description: 'You give us $1 we plant a tree of your choice with that dollar.',
-            tech: ['React', 'Node.js', 'MongoDB'],
+            tech: ['HTML', 'CSS', 'JavaScript'],
             link: 'https://treely-tau.vercel.app/index.html'
         },
         {
