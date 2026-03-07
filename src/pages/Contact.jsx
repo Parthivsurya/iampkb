@@ -15,76 +15,86 @@ const Contact = () => {
 
     const contactLinks = [
         {
-            icon: <FaLinkedin size={24} />,
+            icon: <FaLinkedin />,
             title: 'LinkedIn',
             link: 'https://linkedin.com/in/parthivsurya',
-            text: 'Connect on LinkedIn',
-            color: '#0077b5'
+            text: 'linkedin.com/in/parthivsurya',
         },
         {
-            icon: <FaGithub size={24} />,
+            icon: <FaGithub />,
             title: 'GitHub',
             link: 'https://github.com/parthivsurya',
-            text: 'Follow on GitHub',
-            color: '#333'
+            text: 'github.com/parthivsurya',
         },
         {
-            icon: <FaEnvelope size={24} />,
+            icon: <FaEnvelope />,
             title: 'Email',
             link: `mailto:${email}`,
             text: email,
             isEmail: true,
-            color: '#ea4335'
         }
     ];
 
     return (
         <main>
-            <div className="container contact-container">
-                <h1 className="slide-up">Get in <strong>Touch</strong></h1>
-                <p className="slide-up-delay" style={{ fontSize: '1.2rem', maxWidth: '600px', margin: '0 auto 3rem', textAlign: 'center', color: 'var(--text-secondary)' }}>
-                    I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+            <div className="container contact-container" style={{ position: 'relative', zIndex: 10 }}>
+                <h1 className="slide-up mono" style={{ fontSize: 'clamp(2rem, 5vw, 3rem)' }}>
+                    &gt; ping contact<span className="text-accent">_</span>
+                </h1>
+                <p className="slide-up-delay mono text-accent" style={{ fontSize: '1rem', maxWidth: '650px', marginBottom: '3rem' }}>
+                    Let's connect and build something.
                 </p>
 
-                <div className="contact-grid slide-up-delay">
+                <div className="contact-grid slide-up-delay-2" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                     {contactLinks.map((item, index) => (
-                        <div key={index} className="contact-card">
-                            <div className="icon-box" style={{ color: 'var(--accent)' }}>
+                        <div key={index} className="timeline-card" style={{ display: 'flex', alignItems: 'center', padding: '1.5rem', marginBottom: '0' }}>
+                            <div style={{ fontSize: '1.5rem', marginRight: '1.5rem', color: 'var(--text-secondary)' }}>
                                 {item.icon}
                             </div>
-                            <h3>{item.title}</h3>
 
-                            {item.isEmail ? (
-                                <div className="email-wrapper">
-                                    <a href={item.link} className="contact-link">
+                            <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                <h3 className="mono" style={{ fontSize: '1.1rem', marginBottom: '0.2rem' }}>{item.title}</h3>
+
+                                {item.isEmail ? (
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                                        <a href={item.link} className="mono" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem' }}>
+                                            {item.text}
+                                        </a>
+                                        <button
+                                            onClick={handleCopyEmail}
+                                            aria-label="Copy email address"
+                                            style={{
+                                                background: 'transparent',
+                                                border: '1px solid var(--border-color)',
+                                                color: 'var(--text-secondary)',
+                                                padding: '0.3rem 0.6rem',
+                                                borderRadius: '4px',
+                                                cursor: 'pointer',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                transition: 'all 0.2s'
+                                            }}
+                                        >
+                                            {copied ? <FaCheck color="var(--accent-green)" size={12} /> : <FaCopy size={12} />}
+                                        </button>
+                                        {copied && <span className="mono" style={{ color: 'var(--accent-green)', fontSize: '0.8rem' }}>Copied!</span>}
+                                    </div>
+                                ) : (
+                                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="mono" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: '0.9rem', transition: 'color 0.2s' }}>
                                         {item.text}
                                     </a>
-                                    <button
-                                        className="copy-btn"
-                                        onClick={handleCopyEmail}
-                                        aria-label="Copy email address"
-                                    >
-                                        {copied ? <FaCheck /> : <FaCopy />}
-                                    </button>
-                                    {copied && <span className="copied-tooltip">Copied!</span>}
-                                </div>
-                            ) : (
-                                <a href={item.link} target="_blank" rel="noopener noreferrer" className="contact-link">
-                                    {item.text} <span>→</span>
-                                </a>
-                            )}
+                                )}
+                            </div>
                         </div>
                     ))}
                 </div>
 
-                <Link
-                    to="/"
-                    className="btn btn-secondary slide-up-delay"
-                    style={{ marginTop: '4rem' }}
-                >
-                    <span className="arrow" style={{ transform: 'rotate(180deg)', display: 'inline-block' }}>→</span>
-                    Back Home
-                </Link>
+                <div className="button-group slide-up-delay-3" style={{ marginTop: '4rem', justifyContent: 'center' }}>
+                    <Link to="/" className="btn mono">
+                        cd ..
+                    </Link>
+                </div>
             </div>
         </main>
     );
