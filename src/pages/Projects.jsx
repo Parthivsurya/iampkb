@@ -73,7 +73,7 @@ const Projects = () => {
                     ))}
                 </div>
 
-                <div className="button-group slide-up-delay-3" style={{ marginTop: '4rem', justifyContent: 'center' }}>
+                <div className="button-group slide-up-delay-3" style={{ marginTop: '4rem' }}>
                     <Link to="/" className="btn mono">
                         cd ..
                     </Link>
